@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -23,6 +25,7 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vue-eslint-parser": "^9.3.1",
-    "vue-tsc": "^1.8.5"
+    "vue-tsc": "^1.8.5",
+    "sass": "1.64.2"
   }
 }
