@@ -1,6 +1,6 @@
 <template>
   <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-end mb-0">
+    <ul class="pagination justify-content-center mb-0">
       <li class="page-item disabled">
         <a class="page-link">Previous</a>
       </li>
