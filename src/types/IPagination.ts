@@ -1,4 +1,4 @@
-export type IPagination = {
+export interface IPagination {
   page: number
   totalPage: number
 }

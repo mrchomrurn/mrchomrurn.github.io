@@ -1,4 +1,4 @@
-export type ICoatOfArms = {
+export interface ICoatOfArms {
   png: string
   svg?: string
 }

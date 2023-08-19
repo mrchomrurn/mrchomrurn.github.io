@@ -1,4 +1,4 @@
-export type IMap = {
+export interface IMap {
   googleMaps: string
   openStreetMaps: string
 }

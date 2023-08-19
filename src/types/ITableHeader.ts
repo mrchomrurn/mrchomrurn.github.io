@@ -1,4 +1,4 @@
-export type ITableHeader = {
+export interface ITableHeader {
   label: string
   key: string
 }

@@ -1,3 +1,3 @@
-export type ICapitalInfo = {
+export interface ICapitalInfo {
   latlng: number[]
 }

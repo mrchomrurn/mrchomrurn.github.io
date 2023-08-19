@@ -1,5 +1,3 @@
-// type
-
 import { ICapitalInfo } from './ICapitalInfo'
 import { ICar } from './ICar'
 import { ICoatOfArms } from './ICoatOfArms'
@@ -7,31 +5,31 @@ import { ICurrency } from './ICurrency'
 import { IMap } from './IMap'
 import { IPostalCode } from './IPostalCode'
 
-type ICountryFlag = {
+interface ICountryFlag {
   png: string
   alt?: string
 }
 
-type IName = {
+interface IName {
   official: string
   common: string
 }
 
-type ICountryName = IName & {
+interface ICountryName extends IName {
   nativeName: Record<string, IName>
 }
 
-type ICountryIDD = {
+interface ICountryIDD {
   root: string
   suffixes: string[]
 }
 
-type IDemonyms = {
+interface IDemonyms {
   f: string
   m: string
 }
 
-export type ICountry = {
+export interface ICountry {
   name: ICountryName
   flags: ICountryFlag
   idd: ICountryIDD

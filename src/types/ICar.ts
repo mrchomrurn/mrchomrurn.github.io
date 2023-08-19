@@ -1,4 +1,4 @@
-export type ICar = {
+export interface ICar {
   signs: string[]
   side: 'left' | 'right'
 }
