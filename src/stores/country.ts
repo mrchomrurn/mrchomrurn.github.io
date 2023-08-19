@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import type { ICountry, IPagination } from '../types'
 import { useAxios } from '../composables/use-axios'
 import { Status } from '../enums/status'
+import { useDebounce } from '../composables/use-debounce'
 
 export const useCountryStore = defineStore('country', () => {
   const TOTAL_PER_PAGE = 25
@@ -20,11 +21,14 @@ export const useCountryStore = defineStore('country', () => {
   const fetchCountries = async () => {
     try {
       status.value = Status.Fetching
-      const { data } = await axios.get('/all', {
-        fields: ['name', 'flags', 'cca2', 'cca3', 'altSpellings', 'idd'].join(
-          ','
-        ),
-      })
+      const { data } = await axios.get(
+        textSearch.value ? `/name/${textSearch.value}` : '/all',
+        {
+          fields: ['name', 'flags', 'cca2', 'cca3', 'altSpellings', 'idd'].join(
+            ','
+          ),
+        }
+      )
       countries.value = data
       pagination.value = {
         page: 1,
@@ -38,6 +42,8 @@ export const useCountryStore = defineStore('country', () => {
     }
   }
 
+  const countrySearch = useDebounce(fetchCountries)
+
   return {
     textSearch,
     status,
@@ -45,5 +51,6 @@ export const useCountryStore = defineStore('country', () => {
     pagination,
 
     fetchCountries,
+    countrySearch,
   }
 })
