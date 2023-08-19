@@ -1,0 +1,63 @@
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.svg-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.border-bottom-lg {
+  border-bottom: .25rem solid #efefef;
+}
+
+main,
+span,
+ol,
+ul,
+pre,
+div {
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) transparent;
+
+    // Webkit
+    &::-webkit-scrollbar {            
+        width: var(--scrollbar-size);
+        height: var(--scrollbar-size);
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: var(--scrollbar-border-radius);
+    }
+    
+    // Webkit
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--scrollbar-color);
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
+}
+
+@keyframes loading-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -40px;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -120px;
+  }
+}
