@@ -28,21 +28,44 @@
 </template>
 
 <script setup lang="ts">
-import { getCurrentInstance, onMounted } from 'vue'
+import { getCurrentInstance, onMounted, computed, watch } from 'vue'
 import { Modal } from 'bootstrap'
+
+const emit = defineEmits(['update:modelValue'])
 
 const props = defineProps({
   id: {
     type: String,
     default: () => `__dialog-${getCurrentInstance()?.uid}`,
   },
+  modelValue: Boolean,
   title: String,
 })
 
 let modal: any
 
+const dialogModel = computed({
+  get: () => props.modelValue,
+  set: (show) => emit('update:modelValue', show),
+})
+
+watch(
+  () => dialogModel.value,
+  (show: boolean) => {
+    if (show) {
+      handleOpen()
+    } else {
+      handleClose()
+    }
+  }
+)
+
 onMounted(() => {
   modal = new Modal(`#${props.id}`)
+  const el = document.getElementById(props.id) as HTMLElement
+  el.addEventListener('hidden.bs.modal', () => {
+    dialogModel.value = false
+  })
 })
 
 const handleOpen = () => {
