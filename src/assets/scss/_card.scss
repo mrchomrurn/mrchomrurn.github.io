@@ -1,0 +1,9 @@
+.card {
+  --bs-card-border-width: 0;
+  --bs-card-border-radius: 2rem;
+  --bs-card-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --bs-card-spacer-y: 2rem;
+  --bs-card-spacer-x: 2rem;
+
+  box-shadow: var(--bs-card-box-shadow);
+}
