@@ -1,8 +1,8 @@
 <template>
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center mb-0">
-      <li class="page-item disabled">
-        <a class="page-link">Previous</a>
+      <li class="page-item" :class="{ disabled: pagination.page == 1 }">
+        <a class="page-link" @click.prevent="onNavigate('prev')">Previous</a>
       </li>
       <li v-for="page in getPagination" class="page-item">
         <a
@@ -13,8 +13,13 @@
           >{{ page }}</a
         >
       </li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
+      <li
+        class="page-item"
+        :class="{ disabled: pagination.page == pagination.totalPage }"
+      >
+        <a class="page-link" href="#" @click.prevent="onNavigate('next')"
+          >Next</a
+        >
       </li>
     </ul>
   </nav>
@@ -43,6 +48,18 @@ const getPagination = computed(() => {
 
   return [...new Array(totalPage)].map((_, i) => i + 1)
 })
+
+const onNavigate = (action: 'next' | 'prev') => {
+  const { page, totalPage } = pagination.value
+
+  if (action === 'next') {
+    if (page === totalPage) return
+    pageChange(page + 1)
+    return
+  }
+  if (page === 1) return
+  pageChange(page - 1)
+}
 
 const pageChange = (page: number) => {
   pagination.value.page = page
