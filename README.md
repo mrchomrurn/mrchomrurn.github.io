@@ -1,8 +1,18 @@
-# Vue 3 + TypeScript + Vite
+# Country Catalog
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A test from TECHBODIA. Listing and showing detail of countries around the world.
 
-## Recommended IDE Setup
+### Using Technology
+
+- Vue 3, TypeScript + Vite
+
+### Main Library
+
+- [Bootstrap 5](https://getbootstrap.com/): feature-packed frontend toolkit
+- [Pinia](https://pinia.vuejs.org/): Store management
+- [axios](https://axios-http.com/docs/intro): HTTP Client
+
+### Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
