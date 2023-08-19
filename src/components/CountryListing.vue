@@ -7,7 +7,7 @@
   </div>
   <div v-else class="row">
     <div
-      v-for="country in countries"
+      v-for="country in getCountries"
       class="col-sm-6 col-md-4 col-lg-3 mb-2"
       :key="`country-${country.name}`"
     >
@@ -20,7 +20,7 @@
         <div class="p-3">
           <h6 class="text-ellipsis">{{ country.name.official }}</h6>
           <p class="mb-0 text-muted">Native Name</p>
-          <div class="d-flex overflow-auto flex-nowrap gap-2">
+          <div class="d-flex overflow-auto flex-nowrap">
             <div
               v-for="(name, key) in country.name.nativeName"
               :key="`native-name-${key}`"
@@ -50,7 +50,7 @@ import { Status } from '../enums/status'
 
 const countryStore = useCountryStore()
 
-const { countries, status } = storeToRefs(countryStore)
+const { getCountries, status } = storeToRefs(countryStore)
 </script>
 
 <style lang="scss" scoped>
