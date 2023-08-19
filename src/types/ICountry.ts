@@ -54,7 +54,7 @@ export interface ICountry {
   area?: number
   demonyms?: Record<string, IDemonyms>
   flag?: string
-  map?: IMap
+  maps?: IMap
   population?: number
   gini?: Record<string, number>
   fifa?: string

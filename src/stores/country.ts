@@ -15,6 +15,10 @@ export const useCountryStore = defineStore('country', () => {
   const isNamedSortAsc = ref<boolean>(true)
 
   const status = ref<Status>(Status.Initial)
+  const detailStatus = ref<Status>(Status.Initial)
+  const detailDailog = ref<boolean>(false)
+
+  const countryDetail = ref<ICountry>()
   const countries = ref<ICountry[]>([])
   const pagination = ref<IPagination>({
     page: 1,
@@ -63,12 +67,34 @@ export const useCountryStore = defineStore('country', () => {
 
   const countrySearch = useDebounce(fetchCountries)
 
+  const countryClick = async (country: ICountry) => {
+    detailDailog.value = true
+    try {
+      detailStatus.value = Status.Fetching
+      const { data } = await axios.get('/alpha', {
+        codes: country.cca3,
+      })
+
+      countryDetail.value = data[0]
+
+      detailStatus.value = Status.Success
+    } catch (e) {
+      // TODO: Error handling implementation
+      console.log(e)
+      detailStatus.value = Status.Error
+    }
+  }
+
   return {
     isNamedSortAsc,
     textSearch,
 
     status,
+    detailStatus,
+    detailDailog,
+
     countries,
+    countryDetail,
     pagination,
 
     getCountries,
@@ -76,5 +102,6 @@ export const useCountryStore = defineStore('country', () => {
     fetchCountries,
     countrySearch,
     namedSort,
+    countryClick,
   }
 })
