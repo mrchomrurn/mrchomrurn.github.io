@@ -20,7 +20,7 @@ import { onMounted } from 'vue'
 import { useCountryStore } from './stores/country'
 import CountryListing from './components/CountryListing.vue'
 import CountryTopHeader from './components/CountryTopHeader.vue'
-import Pagination from './components/Pagination.vue'
+import Pagination from './components/core/Pagination.vue'
 import { storeToRefs } from 'pinia'
 
 const countryStore = useCountryStore()

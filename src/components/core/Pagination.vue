@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { IPagination } from '../types'
+import { IPagination } from '../../types'
 import { computed } from 'vue'
 
 const emit = defineEmits(['update:modelValue'])
