@@ -1,0 +1,21 @@
+ <svg 
+  class="circular"
+  style="-webkit-animation: loading-rotate 2s linear infinite; animation: loading-rotate 2s linear infinite; width: 40px; height: 40px;"
+  viewBox="0 0 50 50" xml:space="preserve">
+    <circle
+      class="path"
+      cx="25"
+      cy="25"
+      r="20"
+      style="
+        -webkit-animation: loading-dash 1.5s ease-in-out infinite;
+        animation: loading-dash 1.5s ease-in-out infinite;
+        stroke-dasharray: 90,150;
+        stroke-dashoffset: 0;
+        stroke-width: 3;
+        stroke: currentColor;
+        stroke-linecap: round;
+      "
+      fill="none"
+    ></circle>
+</svg>
