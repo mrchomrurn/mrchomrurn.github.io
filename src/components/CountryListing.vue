@@ -5,7 +5,7 @@
   >
     <InlineSvg src="/icons/circular-spinner.svg"></InlineSvg>
   </div>
-  <div v-else class="row">
+  <div v-else class="row gx-2">
     <div
       v-for="country in getCountries"
       class="col-sm-6 col-md-4 col-lg-3 mb-2"
@@ -22,7 +22,7 @@
           <p class="mb-0 text-muted">Native Name:</p>
           <div
             class="d-flex overflow-auto flex-nowrap mb-3"
-            style="height: 24px"
+            style="height: 30px"
           >
             <div
               v-for="(name, key) in country.name.nativeName"
@@ -45,10 +45,12 @@
           <p class="mb-0 text-muted">
             CODE 3: <span class="fw-bold text-dark">{{ country.cca3 }}</span>
           </p>
-          <p class="mb-0 text-muted">
+          <p class="mb-0 text-muted text-nowrap">
             Calling Codes:
             <span class="fw-bold text-dark">{{
-              `${country.idd.root}${country.idd.suffixes}`
+              `${country.idd.root}${country.idd.suffixes.join(
+                `${country.idd.root}, `
+              )}`
             }}</span>
           </p>
         </div>
