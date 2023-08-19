@@ -18,17 +18,20 @@ export const useCountryStore = defineStore('country', () => {
   const countries = ref<ICountry[]>([])
   const pagination = ref<IPagination>({
     page: 1,
-    totalPage: 0,
+    totalPage: 1,
   })
 
-  const getCountries = computed<ICountry[]>(
-    () =>
-      useSortBy(
-        countries.value,
-        (v: ICountry) => v.name.official,
-        isNamedSortAsc.value
-      ) as ICountry[]
-  )
+  const getCountries = computed<ICountry[]>(() => {
+    const { page } = pagination.value
+    const fromIndex = (page - 1) * TOTAL_PER_PAGE
+    const toIndex = fromIndex + TOTAL_PER_PAGE
+
+    return useSortBy(
+      countries.value,
+      (v: ICountry) => v.name.official,
+      isNamedSortAsc.value
+    ).slice(fromIndex, toIndex) as ICountry[]
+  })
 
   const namedSort = () => {
     isNamedSortAsc.value = !isNamedSortAsc.value
